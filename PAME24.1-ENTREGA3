@@ -1,0 +1,84 @@
+import { SessionProvider } from 'next-auth/react';
+import '../styles/globals.css';
+
+function MyApp({ Component, pageProps: { session, ...pageProps } }) {
+  return (
+    <SessionProvider session={session}>
+      <Component {...pageProps} />
+    </SessionProvider>
+  );
+}
+
+export default MyApp;
+
+import Link from 'next/link';
+
+export default function Home() {
+  return (
+    <div>
+      <h1>Bem-vindo à Rede Social da Diana</h1>
+      <Link href="/login">Login</Link> | <Link href="/register">Registrar</Link>
+    </div>
+  );
+}
+
+import { signIn } from 'next-auth/react';
+
+export default function Login() {
+  return (
+    <div>
+      <h1>Login</h1>
+      <button onClick={() => signIn('credentials')}>Login com Credenciais</button>
+    </div>
+  );
+}
+
+export default function Register() {
+    return (
+      <div>
+        <h1>Registrar</h1>
+        <form>
+          <input type="email" placeholder="Email" required />
+          <input type="password" placeholder="Senha" required />
+          <button type="submit">Registrar</button>
+        </form>
+      </div>
+    );
+
+  }
+  export default function Feed() {
+    return (
+      <div>
+        <h1>Feed de Notícias</h1>
+        {/* Conteúdo do feed de notícias */}
+      </div>
+    );
+  }
+
+  export default function Profile() {
+    return (
+      <div>
+        <h1>Perfil do Usuário</h1>
+        {/* Conteúdo do perfil */}
+      </div>
+    );
+  }
+
+  export default function Messages() {
+    return (
+      <div>
+        <h1>Mensagens</h1>
+        {/* Conteúdo das mensagens */}
+      </div>
+    );
+  }
+ 
+  export default function Settings() {
+    return (
+      <div>
+        <h1>Configurações de Conta</h1>
+        {/* Conteúdo das configurações */}
+      </div>
+    );
+  }
+  
